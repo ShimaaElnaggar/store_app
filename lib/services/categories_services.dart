@@ -1,10 +1,10 @@
 
 import 'package:store/helper/api.dart';
 import 'package:store/models/produt_model.dart';
-class CategoryService{
-  Future<List<ProductModel>> getCategory({required String cityName}) async
+class CategoriesServices{
+  Future<List<ProductModel>> getCategory({required String categoryName}) async
   {
-    List<dynamic> data = await Api().get(url:"https://fakestoreapi.com/products/category/$cityName");
+    List<dynamic> data = await Api().get(url:"https://fakestoreapi.com/products/category/$categoryName");
 
 
   List<ProductModel> productList = [];

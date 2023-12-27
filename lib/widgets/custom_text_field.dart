@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({Key? key, this.hintText, this.onChanged ,this.inputType, this.obscureText =false}) : super(key: key);
- final  Function(String)? onChanged;
- final  String? hintText;
+   CustomTextField({Key? key, this.hintText, this.onChanged ,this.inputType, this.obscureText =false}) : super(key: key);
+  Function(String)? onChanged;
+  String? hintText;
 
- final  bool? obscureText;
-  final TextInputType ?inputType;
+  bool? obscureText;
+  TextInputType ?inputType;
   @override
   Widget build(BuildContext context) {
     return TextField(
@@ -15,13 +15,14 @@ class CustomTextField extends StatelessWidget {
       onChanged: onChanged,
       decoration: InputDecoration(
         hintText: hintText,
-        enabledBorder: const OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.grey,
-          ),
+        enabledBorder:  OutlineInputBorder(
+            borderSide: const BorderSide(),
+            borderRadius: BorderRadius.circular(8),
+
         ),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(16),
+          borderSide: const BorderSide(),
+          borderRadius: BorderRadius.circular(8),
         ),
       ),
     );

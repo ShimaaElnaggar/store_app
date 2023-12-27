@@ -3,17 +3,17 @@ import 'package:store/models/produt_model.dart';
 import 'package:store/views/update_product_view.dart';
 
 class CustomCard extends StatelessWidget {
-  const CustomCard({
+   CustomCard({
     required this.product,
     Key? key,
   }) : super(key: key);
-  final ProductModel product;
+   ProductModel product;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         Navigator.pushNamed(context, UpdateProductView.id,
-            arguments: product.category);
+            arguments: product);
       },
       child: Stack(
         clipBehavior: Clip.none,
@@ -22,15 +22,17 @@ class CustomCard extends StatelessWidget {
             decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
-                  blurRadius: 40,
-                  color: Colors.grey.withOpacity(0.2),
-                  spreadRadius: 0,
+                  blurRadius: 50,
+                  color: Colors.grey.withOpacity(0.1),
+                  spreadRadius: 20,
                   offset: const Offset(10, 10),
                 ),
               ],
             ),
             child: Card(
-              color: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
               elevation: 10,
               child: Padding(
                 padding:
@@ -64,8 +66,8 @@ class CustomCard extends StatelessWidget {
             ),
           ),
           Positioned(
-            right: 40,
-            bottom: 65, // top= -65 (the same),
+            right: 32,
+            bottom: 60, // top= -65 (the same),
             child: Image.network(
               product.image,
               height: 100,

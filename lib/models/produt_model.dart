@@ -5,10 +5,10 @@ class ProductModel{
   final String description;
   final String category;
   final String image;
-  final RatingModel ratingModel;
+  final RatingModel rating;
 
   ProductModel({
-    required this.ratingModel,
+    required this.rating,
     required this.id,
     required this.title,
     required this.image,
@@ -25,7 +25,7 @@ class ProductModel{
       description: jsonData["description"],
       category: jsonData["category"],
       image: jsonData["image"],
-      ratingModel: RatingModel.fromJson(jsonData["rating"]),
+      rating: RatingModel.fromJson(jsonData["rating"]),
   );
   }
 }

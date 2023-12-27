@@ -21,14 +21,14 @@ class HomeView extends StatelessWidget {
           ),
         ],
       ),
-      body: FutureBuilder<List<ProductModel>>(
-        future: AllProductsService().getAllProducts(),
-      builder:(context,snapshot){
-          if(snapshot.hasData) {
-            List<ProductModel> products=snapshot.data!;
-            return Padding(
-              padding: const EdgeInsets.only(left: 16, right: 16, top: 65),
-              child: GridView.builder(
+      body: Padding(
+        padding: const EdgeInsets.only(left: 16,right: 16,top: 65),
+        child: FutureBuilder<List<ProductModel>>(
+          future: AllProductsService().getAllProducts(),
+        builder:(context,snapshot){
+            if(snapshot.hasData) {
+              List<ProductModel> products=snapshot.data!;
+              return GridView.builder(
                 clipBehavior: Clip.none,
                 itemCount: products.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -39,12 +39,12 @@ class HomeView extends StatelessWidget {
                 ),
 
                 itemBuilder: (context, index) => CustomCard(product: products[index],),
-              ),
-            );
-      }else{
-            return const Center(child: CircularProgressIndicator());
-    }
-        }
+              );
+        }else{
+              return const Center(child: CircularProgressIndicator());
+            }
+          }
+        ),
       ),
     );
   }
